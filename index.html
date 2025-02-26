@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Textly Chat App</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase Initialization Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
+
+    // Replace these with your Firebase project configuration
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID",
+      measurementId: "YOUR_MEASUREMENT_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    // Firebase Auth and Firestore will be imported in script.js
+  </script>
+</head>
+<body>
+  <!-- Authentication Section -->
+  <div id="authContainer" class="auth-container">
+    <div class="tabs">
+      <button id="loginTab" class="active">Login</button>
+      <button id="signupTab">Sign Up</button>
+    </div>
+    <!-- Login Form -->
+    <div id="loginFormContainer">
+      <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Email" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <div class="social-login">
+        <p>Or login with</p>
+        <button class="social-btn" data-provider="Google">Google</button>
+        <button class="social-btn" data-provider="Facebook">Facebook</button>
+        <button class="social-btn" data-provider="Twitter">Twitter</button>
+        <button class="social-btn" data-provider="Phone">Phone</button>
+      </div>
+    </div>
+    <!-- Sign Up Form -->
+    <div id="signupFormContainer" style="display: none;">
+      <form id="signupForm">
+        <input type="text" id="signupUsername" placeholder="Email" required />
+        <input type="password" id="signupPassword" placeholder="Password" required />
+        <input type="text" id="signupPhone" placeholder="Phone Number (optional)" />
+        <button type="submit">Sign Up</button>
+      </form>
+      <div class="social-login">
+        <p>Or sign up with</p>
+        <button class="social-btn" data-provider="Google">Google</button>
+        <button class="social-btn" data-provider="Facebook">Facebook</button>
+        <button class="social-btn" data-provider="Twitter">Twitter</button>
+        <button class="social-btn" data-provider="Phone">Phone</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Section -->
+  <div id="chatSection" class="chat-container" style="display: none;">
+    <!-- Sidebar for Conversations & Search -->
+    <div class="chat-sidebar">
+      <div class="sidebar-header">
+        <h3>Conversations</h3>
+        <input type="text" id="userSearch" placeholder="Search users..." />
+        <button id="newChatBtn">New Chat</button>
+        <button id="newGroupBtn">New Group Chat</button>
+      </div>
+      <div class="conversation-list" id="conversationList">
+        <!-- Conversation list will be dynamically populated -->
+      </div>
+    </div>
+    <!-- Main Chat Window -->
+    <div class="chat-main">
+      <div class="chat-header">
+        <span class="app-title" id="conversationTitle">Select a conversation</span>
+        <button id="logout-btn">Logout</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <!-- Chat messages will appear here -->
+      </div>
+      <div class="chat-input">
+        <button id="imageUploadBtn" class="image-upload-btn" title="Send Image">📷</button>
+        <input type="text" id="messageInput" placeholder="Type a message..." />
+        <button id="sendButton">Send</button>
+        <input type="file" id="imageInput" accept="image/*" style="display: none;" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Load main script after Firebase initialization -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

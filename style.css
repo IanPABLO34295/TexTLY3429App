@@ -1,0 +1,244 @@
+/* Global Styles for Authentication & Chat */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------------- Authentication Styles ---------------- */
+.auth-container {
+  width: 400px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  margin: 50px auto;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tabs button.active {
+  background: #007AFF;
+  color: #fff;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-container form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+.auth-container form button {
+  padding: 12px;
+  border: none;
+  background: #007AFF;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.social-login {
+  margin-top: 20px;
+}
+
+.social-login p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.social-btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff;
+}
+
+.social-btn[data-provider="Google"] { background: #DB4437; }
+.social-btn[data-provider="Facebook"] { background: #3B5998; }
+.social-btn[data-provider="Twitter"] { background: #1DA1F2; }
+.social-btn[data-provider="Phone"] { background: #34A853; }
+
+/* ---------------- Chat Styles ---------------- */
+.chat-container {
+  width: 800px;
+  height: 600px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+/* Sidebar */
+.chat-sidebar {
+  width: 250px;
+  background: #f7f7f7;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.sidebar-header {
+  margin-bottom: 10px;
+}
+
+.sidebar-header h3 {
+  margin: 0 0 10px;
+}
+
+.sidebar-header input {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.sidebar-header button {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: none;
+  background: #007AFF;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.conversation-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.conversation-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.conversation-item:hover {
+  background: #e6f0ff;
+}
+
+/* Main Chat Window */
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-main .chat-header {
+  background: #007AFF;
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f9f9f9;
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #f0f0f0;
+}
+
+.chat-input input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+.chat-input button {
+  border: none;
+  background: #007AFF;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Image Upload Button */
+.image-upload-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #007AFF;
+}
+
+/* Message Bubbles */
+.message {
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 70%;
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background: #b3d7ff;
+  color: black;
+}
+
+.message.received {
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid #007AFF;
+  color: black;
+}
+
+.message img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .chat-container {
+    width: 100%;
+    height: 100vh;
+  }
+}
